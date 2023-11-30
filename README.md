@@ -27,6 +27,8 @@ with this project I aim to create a complete basecode skeleton for starting a de
 - Multi-thread skeleton.
 - Custom Loss skeleton.
 - Starter Colab notebook.
+- there's a nice repo for finetuning almost any [LLM](https://github.com/OpenAccess-AI-Collective/axolotl/blob/main/src/axolotl/cli/train.py)
+
 
 ## Final Remarks
 If you love the project and would like to contribute don't be shy and make a pull request with your additions, and if you find useful please don't forget to star it (⌒▽⌒)☆.  
