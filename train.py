@@ -18,15 +18,15 @@ from tqdm import tqdm
 
 
 #args
-parser = argparse.ArgumentParser(description='args for experement')
+parser = argparse.ArgumentParser(description='args for experiment')
 parser.add_argument('--personality_exp', type=bool, default=True, help='if True load csvs in Personality_Score')
 parser.add_argument('--offline_logs', type=bool, default=True, help='if True print logs in terminal')
 parser.add_argument('--online_logs', type=str, default='', help='if not empty use wandb to upload logs, provide wandb api key as input')
 parser.add_argument('--save_path', type=str, default='Experements', help='path to save model')
-parser.add_argument('--audio_length', type=int, default=80001, help='All audious will be either padded or truncated to the input')
-parser.add_argument('--epoch', type=int, default=50, help='number of trainin epochs')
-parser.add_argument('--exp_name', type=str, default= datetime.datetime.now(), help='name of experement on wandb')
-parser.add_argument('--test_split', type=float, default=0.2, help='persentage (0.0 -> 1.0) of data to be allocated for test. Note: training split is infered.')
+parser.add_argument('--audio_length', type=int, default=80001, help='All audios will be either padded or truncated to the input')
+parser.add_argument('--epoch', type=int, default=50, help='number of training epochs')
+parser.add_argument('--exp_name', type=str, default= datetime.datetime.now(), help='name of experiment on wandb')
+parser.add_argument('--test_split', type=float, default=0.2, help='percentage (0.0 -> 1.0) of data to be allocated for test. Note: training split is inferred.')
 parser.add_argument('--batch', type=int, default=12, help='')
 parser.add_argument('--shuffle', type=bool, default=False, help='')
 parser.add_argument('--lr', type=float, default=1e-3, help='')
@@ -35,7 +35,7 @@ args = parser.parse_args()
 
 #---------Check for args validity------------
 
-#cretae save dir
+#create save dir
 if not args.save_path:
         raise ValueError(f'--save_path must be provided. current value is {args.save_path}')
 else:
@@ -57,7 +57,7 @@ if not args.exp_name:
 if args.offline_logs:
     logging.basicConfig(filename=os.path.join(args.save_path, args.exp_name,'logs.log') , filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-#check for online loging
+#check for online logging
 if args.online_logs:
     if not args.exp_name:
         raise ValueError('--exp_name must be provided when --online_logs is True')
